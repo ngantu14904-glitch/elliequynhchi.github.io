@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pham Thi Quynh Chi – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #fff5fa;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: #ec4899;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .hero-title span {
+      color: #ec4899;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      max-width: 34rem;
+      color: #6b7280;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.75rem;
+      color: #be185d;
+      background: #fce7f3;
+      border: 1px solid #f9a8d4;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #f472b6, #ec4899);
+      color: white;
+      border-color: #ec4899;
+      box-shadow: 0 12px 25px rgba(236, 72, 153, 0.3);
+    }
+
+    .btn-ghost {
+      background: white;
+      border-color: #f9a8d4;
+      color: #be185d;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(248, 187, 208, 0.6);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .hero-avatar {
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      border: 2px solid #f9a8d4;
+      background: radial-gradient(circle at 20% 20%, #f9a8d4, transparent 55%),
+                  radial-gradient(circle at 80% 80%, #f472b6, transparent 55%);
+      margin-inline: auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-avatar-inner {
+      position: absolute;
+      inset: 16px;
+      border-radius: inherit;
+      border: 1px dashed rgba(248, 187, 208, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 1rem;
+      color: #831843;
+      background: rgba(255, 241, 246, 0.9);
+      backdrop-filter: blur(6px);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 1.4rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-pill {
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid #fecdd3;
+      font-size: 0.8rem;
+      color: #9f1239;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 1.8rem;
+    }
+
+    .card-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 1rem;
+      border: 1px solid #ffe4e6;
+      padding: 1rem 1.1rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .card-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .card-meta {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      text-align: right;
+    }
+
+    .card-location {
+      font-size: 0.8rem;
+      color: #fb7185;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-list ul {
+      padding-left: 1.1rem;
+      font-size: 0.86rem;
+      color: #4b5563;
+    }
+
+    .card-list ul li {
+      margin-bottom: 0.2rem;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-card {
+      background: #fff;
+      border-radius: 1rem;
+      border: 1px solid #fecdd3;
+      padding: 1.3rem 1.4rem;
+      max-width: 520px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.88rem;
+      margin-top: 0.8rem;
+    }
+
+    .contact-item span {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #9ca3af;
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid #ffe4e6;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-avatar {
+        order: -1;
+      }
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">QUYNH CHI</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#activities">Activities</a>
+        <a href="#contact">Contact Chi</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <h1 class="hero-title">
+            Hi, I’m <span>Quynh Chi</span>.<br />
+            A fourth-year student exploring economics, law & people.
+          </h1>
+          <p class="hero-subtitle">
+            I’m currently studying International Economics and International Trade Law at Foreign Trade University.
+            I enjoy digging into data, understanding regulations, and working with people through HR and community projects.
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag">International Economics</span>
+            <span class="tag">International Trade Law</span>
+            <span class="tag">HR & People</span>
+            <span class="tag">Research & Data</span>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Contact Chi</a>
+            <a href="#experience" class="btn btn-ghost">View experience</a>
+          </div>
+
+          <p class="hero-note">
+            Open to internships, entry-level roles and collaboration opportunities.
+          </p>
+        </div>
+
+        <div class="hero-avatar">
+          <div class="hero-avatar-inner">
+            Add your photo here 💗<br />
+            (square picture works best)
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <h2>About</h2>
+        <p class="section-subtitle">
+          A little introduction so you know who I am beyond the bullet points.
+        </p>
+
+        <div class="two-column">
+          <div>
+            <p class="tagline">
+              I’m Pham Thi Quynh Chi, a curious and people-oriented student based in Hanoi.
+            </p>
+            <p style="font-size: 0.9rem; margin-bottom: 0.7rem;">
+              At Foreign Trade University, I pursue a double major in International Economics and International Trade Law.
+              My journey so far has taken me through legal consulting, HR, education and content creation — all centered
+              around communication, structure and impact.
+            </p>
+            <p style="font-size: 0.9rem; margin-bottom: 0.7rem;">
+              I love learning new tools, taking on challenges, and building experiences that feel organized yet friendly.
+              Whether it’s supporting recruitment, drafting documents, or coordinating student events, I bring energy,
+              responsibility and a growth mindset.
+            </p>
+            <p style="font-size: 0.9rem;">
+              Outside of work and study, I enjoy books, youth projects and any chance to create something meaningful with a team.
+            </p>
+          </div>
+
+          <div>
+            <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; color:#be185d;">Education</h3>
+            <div class="card" style="margin-bottom:0.7rem;">
+              <div class="card-header">
+                <div class="card-title">Foreign Trade University</div>
+                <div class="card-meta">2022 – Present</div>
+              </div>
+              <div class="card-location">Hanoi, Vietnam</div>
+              <p style="font-size:0.86rem; margin-bottom:0.2rem;">
+                Bachelor of International Economics · GPA: 3.50/4.00
+              </p>
+              <p style="font-size:0.86rem;">
+                Bachelor of International Trade Law · GPA: 3.58/4.00
+              </p>
+            </div>
+
+            <h3 style="font-size: 0.95rem; margin: 0.8rem 0 0.5rem; color:#be185d;">Highlights</h3>
+            <ul style="padding-left:1.1rem; font-size:0.86rem; color:#4b5563;">
+              <li>Third Prize – Student Scientific Research Competition (English Track), 2025</li>
+              <li>Top 20 – Heading For The Future Project: E-commerce, Season 1</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <h2>Experience</h2>
+        <p class="section-subtitle">
+          Hands-on experience across legal consulting, HR, education and content writing.
+        </p>
+
+        <div class="card-list">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Intern, General Consulting Department – Phuc Khanh Law Firm</div>
+              <div class="card-meta">Summer 2025 · Hung Yen</div>
+            </div>
+            <div class="card-location">Legal research · Contracts · Client support</div>
+            <ul>
+              <li>Conducted legal research on case files and summarized key findings for attorneys.</li>
+              <li>Assisted in drafting contracts and legal documents under supervision.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">HR Intern – BellSystem24 Vietnam</div>
+              <div class="card-meta">Summer 2024 · Hanoi</div>
+            </div>
+            <div class="card-location">Recruitment · Coordination · Operations</div>
+            <ul>
+              <li>Posted job openings, screened candidates and scheduled interviews and training sessions.</li>
+              <li>Processed and shortlisted 374 applications, contributing to the recruitment of 17 employees.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Academic Assistant – Sace Education Vietnam</div>
+              <div class="card-meta">2022 – 2023 · Hanoi</div>
+            </div>
+            <div class="card-location">Education · Content · Coordination</div>
+            <ul>
+              <li>Developed IELTS learning materials (bands 5.5–6.5) and English courses for young learners.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">SEO Content Writer (Freelancer)</div>
+              <div class="card-meta">2022 – 2023 · Hanoi (Remote)</div>
+            </div>
+            <div class="card-location">Travel · Hospitality · Flight booking</div>
+            <ul>
+              <li>Produced SEO-optimized articles (500–1,000 words) on travel, hospitality and flight booking topics.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIVITIES -->
+      <section id="activities">
+        <h2>Activities & Leadership</h2>
+        <p class="section-subtitle">
+          Student life is where I learn teamwork, leadership and how to make things actually happen.
+        </p>
+
+        <div class="card-list">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Organizing Committee Member – Student Union, Foreign Trade University</div>
+              <div class="card-meta">2022 – Present · Hanoi</div>
+            </div>
+            <div class="card-location">Events · Community · Youth</div>
+            <ul>
+              <li>Organized large-scale events (1,000+ participants) such as “Charming FTU 2023”.</li>
+              <li>Supported volunteer campaign “Happy Day” and other student activities.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Research & Development Team Member – Books and Action Project</div>
+              <div class="card-meta">2022 – 2023 · Hanoi</div>
+            </div>
+            <div class="card-location">Education · Reading culture</div>
+            <ul>
+              <li>Helped establish book clubs in 10+ high schools.</li>
+              <li>Led training, event hosting and team coordination activities.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">President – Hung Yen Books and Action Club</div>
+              <div class="card-meta">2021 – 2022 · Hung Yen</div>
+            </div>
+            <div class="card-location">Leadership · Management · Community</div>
+            <ul>
+              <li>Directed club activities, managed operations and supported membership growth.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <h2>Skills & Tools</h2>
+        <p class="section-subtitle">
+          A mix of analytical, legal, people and digital skills I’m continuously improving.
+        </p>
+
+        <div class="two-column">
+          <div>
+            <h3 style="font-size:0.95rem; margin-bottom:0.4rem; color:#be185d;">Core skills</h3>
+            <div class="pill-row" style="margin-bottom:0.9rem;">
+              <div class="skill-pill">Legal research</div>
+              <div class="skill-pill">Contract drafting (under supervision)</div>
+              <div class="skill-pill">HR support & recruitment</div>
+              <div class="skill-pill">Event organization</div>
+              <div class="skill-pill">Academic writing & research</div>
+              <div class="skill-pill">SEO content writing</div>
+            </div>
+
+            <h3 style="font-size:0.95rem; margin-bottom:0.4rem; color:#be185d;">Technical</h3>
+            <div class="pill-row">
+              <div class="skill-pill">Microsoft Word</div>
+              <div class="skill-pill">Microsoft Excel</div>
+              <div class="skill-pill">PowerPoint</div>
+              <div class="skill-pill">Stata</div>
+              <div class="skill-pill">EViews</div>
+              <div class="skill-pill">SQL</div>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-size:0.95rem; margin-bottom:0.4rem; color:#be185d;">Languages</h3>
+            <div class="pill-row" style="margin-bottom:0.9rem;">
+              <div class="skill-pill">Vietnamese – Native</div>
+              <div class="skill-pill">English – Fluent</div>
+            </div>
+
+            <h3 style="font-size:0.95rem; margin-bottom:0.4rem; color:#be185d;">What I’m excited about</h3>
+            <p style="font-size:0.88rem; color:#4b5563;">
+              I’m excited to grow in roles where I can combine my understanding of economics and trade law
+              with people-focused work – from HR and operations to research and data-driven projects.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2>Contact Chi</h2>
+        <p class="section-subtitle">
+          Want to work together, ask a question or just say hi? I’d love to hear from you.
+        </p>
+
+        <div class="contact-card">
+          <p style="font-size: 0.9rem; color: #4b5563;">
+            Email is the fastest way to reach me, but you can also find me on LinkedIn.
+          </p>
+
+          <div class="contact-row">
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:quynhchipt.work@gmail.com">quynhchipt.work@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <span>LinkedIn</span>
+              <a href="https://www.linkedin.com" target="_blank">
+                Connect with me on LinkedIn
+              </a>
+            </div>
+            <div class="contact-item">
+              <span>Location</span>
+              Hanoi, Vietnam
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Pham Thi Quynh Chi. Built with curiosity & a little bit of pink.
+    </footer>
+  </div>
+
+  <script>
+    // Set current year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
